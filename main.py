@@ -77,7 +77,10 @@ def main():
         elif choice == 7:
             pass
         elif choice== 8:
-            pass
+            if teams ==[]:
+                print("teams is empty!!")
+            else:    
+                print(team_without_wins(teams))
         elif choice == 9:
             pass
         elif choice == 10:
