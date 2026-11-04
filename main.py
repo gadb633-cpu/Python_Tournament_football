@@ -57,6 +57,12 @@ def main():
                 if val_if_team_alredy_played(new_match,matches) == False:
                     print("them alrady played")
                     continue
+                if val_Positive_num(home_goals) == False:
+                    print("try agien!!!!!")
+                    continue
+                if val_Positive_num(away_goals) ==False:
+                    print("try agien!!!!!")
+                    continue
                 add_play(new_match,matches)
                 add_info_match(new_match,teams)
                 break
