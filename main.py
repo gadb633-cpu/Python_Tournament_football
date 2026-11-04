@@ -73,9 +73,14 @@ def main():
             if teams ==[]:
                 print("teams is empty!!")
             else:    
-                print(sort_attacking_team(teams[0]))
+                print(sort_attacking_team(teams)[0])
         elif choice == 7:
-            pass
+            if teams ==[]:
+                print("teams is empty!!")
+            else:    
+                list_teams = shaw_success_rate(teams)
+                for team in list_teams:
+                    print(f"{team}%")
         elif choice== 8:
             if teams ==[]:
                 print("teams is empty!!")

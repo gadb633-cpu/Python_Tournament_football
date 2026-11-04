@@ -9,3 +9,11 @@ def sort_attacking_team(teams):
 def team_without_wins(teams):
     without_wins = list(filter(lambda t: t["wins"] ==0,teams))
     return without_wins
+def shaw_success_rate(teams):
+    new_team = []
+    try:
+        for team in teams:
+            new_team.append((team["points"]/(team["played"]*3))*100)
+    except ZeroDivisionError:
+        new_team.append("No_games")
+    return sorted(new_team,reverse=True)    
