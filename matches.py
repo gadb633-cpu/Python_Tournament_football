@@ -24,12 +24,12 @@ def add_info_match(new_match,teams):
             team["goals_for"] +=new_match["away_goals"]
             team["goals_against"] +=new_match["home_goals"]
             team["played"] +=1
-            if new_match["home_goals"] > new_match["away_goals"]:
+            if new_match["away_goals"] > new_match["home_goals"]:
                 team["wins"] +=1
                 team["points"] +=3
             elif new_match["home_goals"] == new_match["away_goals"]:
                 team["draws"] +=1
                 team["points"] +=1
-            elif new_match["home_goals"] < new_match["away_goals"]:
+            elif new_match["away_goals"] < new_match["home_goals"]:
                 team["losses"] +=1
             
