@@ -4,13 +4,11 @@ from teams import *
 from matches import *
 from val import *
 from result import *
+import logging
 
 def main():
     matches = []
-    teams = [{
-    "id": 1, "name": "Maccabi", "played": 0,
-    "wins": 0, "draws": 0, "losses": 0,
-    "goals_for": 0, "goals_against": 0, "points": 0}]
+    teams = []
     while True:
         shaw_menu()
         choice = get_num("Choose an option(0-10) ")
@@ -42,6 +40,9 @@ def main():
                 print(teams)
         elif choice == 3:
             while True:
+                if len(teams) ==1:
+                    print("There aren't enough groups!!")
+                    break
                 home_team_id = get_num("enter home_team_id ")
                 away_team_id = get_num("enter away_team_id ")
                 home_goals = get_num("enter home_goals ")
@@ -87,7 +88,14 @@ def main():
             else:    
                 print(team_without_wins(teams))
         elif choice == 9:
-            pass
+            if teams ==[]:
+                print("teams is empty!!")
+            else:    
+                try:
+                    list_summary = Show_tournament_summary(teams)
+                    print(f"grups:{list_summary["grups"]} \nsum played:{list_summary["sum played"]} \nsum goals:{list_summary["sum goals"]} \navg goals:{list_summary["avg goals"]:.2f} \nclub with no games:{list_summary["club with no games"]}")
+                except TypeError:
+                    print(list_summary)    
         elif choice == 10:
             pass
         elif choice ==0:

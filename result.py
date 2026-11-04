@@ -16,4 +16,21 @@ def shaw_success_rate(teams):
             new_team.append((team["points"]/(team["played"]*3))*100)
     except ZeroDivisionError:
         new_team.append("No_games")
-    return sorted(new_team,reverse=True)    
+    return sorted(new_team,reverse=True) 
+   
+def Show_tournament_summary(teams):
+    try:    
+        num_grups = len(teams)
+        num_played = 0
+        num_goals_for = 0
+        num_goals_agens = 0
+        even_games = 0
+        for team in teams:
+            num_played +=team["played"]
+            num_goals_for += team["goals_for"]
+            num_goals_agens += team["goals_against"]
+            even_games += team["draws"] /2
+        avg_goals_of_game = (num_goals_for + num_goals_agens)/num_played
+    except ZeroDivisionError:
+            return "no played"
+    return {"grups":num_grups,"sum played":num_played,"sum goals":num_goals_for,"avg goals":avg_goals_of_game,"club with no games":even_games}
