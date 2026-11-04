@@ -3,6 +3,8 @@ from inputs import *
 from teams import *
 from matches import *
 from val import *
+from result import *
+
 def main():
     matches = []
     teams = [{
@@ -58,11 +60,20 @@ def main():
                 add_info_match(new_match,teams)
                 break
         elif choice == 4:
-            pass
+            if teams ==[]:
+                print("teams is empty!!")
+            else:    
+                print(sorted_teams(teams))
         elif choice == 5:
-            pass
+            if teams ==[]:
+                print("teams is empty!!")
+            else:    
+                print(sorted_teams(teams)[0])
         elif choice == 6:
-            pass
+            if teams ==[]:
+                print("teams is empty!!")
+            else:    
+                print(sort_attacking_team(teams[0]))
         elif choice == 7:
             pass
         elif choice== 8:
