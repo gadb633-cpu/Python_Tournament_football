@@ -3,8 +3,8 @@ def get_info_match(home_team_id,away_team_id,home_goals,away_goals):
     new_match = {"home_team_id":home_team_id ,"away_team_id": away_team_id,
                 "home_goals": home_goals,"away_goals": away_goals}
     return new_match
-def add_play(new_match,matchs:list):
-    matchs.append((new_match["home_team_id"],new_match["away_team_id"]))
+def add_play(new_match,matches:list):
+    matches.append(new_match)
 
 def add_info_match(new_match,teams):
     for team in teams:
@@ -32,4 +32,3 @@ def add_info_match(new_match,teams):
                 team["points"] +=1
             elif new_match["away_goals"] < new_match["home_goals"]:
                 team["losses"] +=1
-            

@@ -7,7 +7,7 @@ def val_not_empty(item):
 
 def val_if_team_exict(item,teams):
     for team in teams:
-        if team[item] == item:
+        if team["id"] == item:
             return False    
     return True
 
@@ -22,9 +22,8 @@ def team_not_same(home_team_id,away_team_id):
         return False
     return True
 
-def val_if_team_alredy_played(home_team_id,away_team_id,matches):
+def val_if_team_alredy_played(new_match,matches):
     for match in matches:
-        if home_team_id + away_team_id == match[0]+match[1]:
+        if new_match["home_team_id"] == match["home_team_id"] and new_match["away_team_id"] == match["away_team_id"]:
             return False
         return True
-    

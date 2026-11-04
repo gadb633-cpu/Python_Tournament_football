@@ -1,7 +1,7 @@
 
-def get_id(msg):
+def get_num(msg):
     try:
-        id_ = int(input(f"{msg}:"))
+        id_ = int(input(f"{msg}:").strip())
         return id_
     except ValueError:
         print("is not num,try agien!!")
@@ -10,6 +10,3 @@ def get_id(msg):
 def get_name(msg):
     name = input(f"{msg}:").lower()
     return name
-
-def get_goals(msg):
-    goals = int(input(f"{msg}:"))
