@@ -1,21 +1,24 @@
 
 def val_not_empty(item):
     if item.strip():
-        return True
-    else:
         return False
+    else:
+        return True
+def val_between_range(num):
+    if (num >=0) and (num <11):
+        return False
+    return True
 
 def val_if_team_exict(item,teams):
     for team in teams:
-        if team["id"] == item:
+        if team["id"] == item or team["name"] == item:
             return False    
     return True
 
-def val_id_Positive(id):
-    if id < 0:
+def val_Positive_num(num):
+    if num < 0:
         return False
-    else:
-        return True
+    return True
 
 def team_not_same(home_team_id,away_team_id):
     if home_team_id == away_team_id:

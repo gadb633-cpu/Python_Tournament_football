@@ -12,14 +12,24 @@ def main():
     while True:
         shaw_menu()
         choice = get_num("Choose an option(0-10) ")
+        if val_between_range(choice):
+            continue
         if isinstance(choice, bool):
             continue
         if choice == 1:
             while True:    
                 team_id = get_num("enter team id for adding ")
+                if val_Positive_num(team_id) == False:
+                    continue
                 if isinstance(team_id, bool):
                     continue
+                if val_if_team_exict(team_id,teams) == False:
+                    continue
                 team_name = get_name("enter team name for adding ")
+                if val_not_empty(team_name):
+                    continue
+                if val_if_team_exict(team_name,teams) == False:
+                    continue
                 new_team = get_info_team(team_id,team_name)
                 add_team(new_team,teams)
                 break
@@ -64,4 +74,4 @@ def main():
         elif choice ==0:
             break
 
-main()    
+main()

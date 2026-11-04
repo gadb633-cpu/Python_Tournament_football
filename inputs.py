@@ -1,8 +1,8 @@
 
 def get_num(msg):
     try:
-        id_ = int(input(f"{msg}:").strip())
-        return id_
+        num = int(input(f"{msg}:").strip())
+        return num
     except ValueError:
         print("is not num,try agien!!")
         return False
