@@ -40,6 +40,9 @@ def main():
                 print(teams)
         elif choice == 3:
             while True:
+                if len(teams) ==1:
+                    print("There aren't enough groups!!")
+                    continue
                 home_team_id = get_num("enter home_team_id ")
                 away_team_id = get_num("enter away_team_id ")
                 home_goals = get_num("enter home_goals ")
