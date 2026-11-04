@@ -40,7 +40,7 @@ def main():
                 print(teams)
         elif choice == 3:
             while True:
-                if len(teams) ==1:
+                if len(teams) ==1 or len(teams) ==0:
                     print("There aren't enough groups!!")
                     break
                 home_team_id = get_num("enter home_team_id ")
