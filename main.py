@@ -5,6 +5,9 @@ from matches import *
 from val import *
 from result import *
 import logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s | %(levelname)s | %(message)s")
 
 def main():
     matches = []
@@ -35,13 +38,13 @@ def main():
                 break
         elif choice == 2:
             if teams ==[]:
-                print("teams is empty!!")
+                logging.error("teams is empty!!")
             else:    
                 print(teams)
         elif choice == 3:
             while True:
                 if len(teams) ==1 or len(teams) ==0:
-                    print("There aren't enough groups!!")
+                    logging.error("There aren't enough groups!!")
                     break
                 home_team_id = get_num("enter home_team_id ")
                 away_team_id = get_num("enter away_team_id ")
@@ -49,53 +52,53 @@ def main():
                 away_goals = get_num("enter away_goals ")
                 new_match = get_info_match(home_team_id,away_team_id,home_goals,away_goals)
                 if val_if_team_exict(home_team_id,teams) and val_if_team_exict(away_team_id,teams):
-                    print("not exict")
+                    logging.error("not exict")
                     continue
                 if team_not_same(home_team_id,away_team_id) == False:
-                    print("its the same")
+                    logging.error("its the same")
                     continue
                 if val_if_team_alredy_played(new_match,matches) == False:
-                    print("them alrady played")
+                    logging.error("them alrady played")
                     continue
                 if val_Positive_num(home_goals) == False:
-                    print("try agien!!!!!")
+                    logging.error("try agien!!!!!")
                     continue
                 if val_Positive_num(away_goals) ==False:
-                    print("try agien!!!!!")
+                    logging.error("try agien!!!!!")
                     continue
                 add_play(new_match,matches)
                 add_info_match(new_match,teams)
                 break
         elif choice == 4:
             if teams ==[]:
-                print("teams is empty!!")
+                logging.error("teams is empty!!")
             else:    
                 print(sorted_teams(teams))
         elif choice == 5:
             if teams ==[]:
-                print("teams is empty!!")
+                logging.error("teams is empty!!")
             else:    
                 print(sorted_teams(teams)[0])
         elif choice == 6:
             if teams ==[]:
-                print("teams is empty!!")
+                logging.error("teams is empty!!")
             else:    
                 print(sort_attacking_team(teams)[0])
         elif choice == 7:
             if teams ==[]:
-                print("teams is empty!!")
+                logging.error("teams is empty!!")
             else:    
                 list_teams = shaw_success_rate(teams)
                 for team in list_teams:
                     print(f"{team}%")
         elif choice== 8:
             if teams ==[]:
-                print("teams is empty!!")
+                logging.error("teams is empty!!")
             else:    
                 print(team_without_wins(teams))
         elif choice == 9:
             if teams ==[]:
-                print("teams is empty!!")
+                logging.error("teams is empty!!")
             else:    
                 try:
                     list_summary = Show_tournament_summary(teams)
@@ -106,5 +109,4 @@ def main():
             pass
         elif choice ==0:
             break
-
 main()

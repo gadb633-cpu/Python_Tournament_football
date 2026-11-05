@@ -1,7 +1,7 @@
 
 def add_team(team,teams):
     teams.append(team)
-        
+
 def get_info_team(id,name): 
     new_team = {
         "id": id, "name": name, "played": 0,
